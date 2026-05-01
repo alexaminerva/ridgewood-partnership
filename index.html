@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive Home Services — HouseAccount × Ridgewood Moving</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #1C3A4A; --blue: #6B9FBF; --bg: #EEF4F8;
+  --white: #fff; --border: #D0DDE6; --muted: #6b8699;
+  --green: #12b76a; --red: #C0392B;
+}
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--navy); min-height: 100vh; }
+
+/* NAV */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.nav img.ridgewood { height: 44px; width: auto; }
+.nav img.ha { height: 24px; width: auto; opacity: 0.8; }
+.nav-divider { width: 1px; height: 32px; background: var(--border); }
+.nav-x { font-size: 16px; color: var(--border); font-weight: 400; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(150deg, var(--navy) 0%, #1b4d6b 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 60px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 52px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.hero-pill {
+  display: inline-block;
+  background: rgba(107,159,191,0.2);
+  border: 1px solid rgba(107,159,191,0.35);
+  color: #9ec5df;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 6px 18px; border-radius: 100px;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(26px, 5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  max-width: 580px;
+  margin: 0 auto 16px;
+}
+.hero h1 span { color: #6B9FBF; }
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ABOUT */
+.about {
+  background: var(--bg);
+  padding: 64px 24px 0;
+  text-align: center;
+}
+.about-inner { max-width: 600px; margin: 0 auto; }
+.eyebrow {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 10px;
+}
+.about p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* TILES */
+.tiles-section { padding: 48px 24px; background: var(--bg); }
+.tiles-inner { max-width: 860px; margin: 0 auto; }
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+.tile {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 18px;
+}
+.tile-icon {
+  width: 38px; height: 38px;
+  background: var(--bg);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.tile-icon svg { width: 18px; height: 18px; stroke: var(--navy); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tile h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.tile p { font-size: 12px; color: var(--muted); line-height: 1.55; }
+.tile.highlight { background: var(--navy); border-color: var(--navy); }
+.tile.highlight .tile-icon { background: rgba(255,255,255,0.1); }
+.tile.highlight .tile-icon svg { stroke: #6B9FBF; }
+.tile.highlight h4 { color: var(--white); }
+.tile.highlight p { color: rgba(255,255,255,0.6); }
+
+/* PARTNERSHIP BANNER */
+.partnership {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+}
+.partnership-inner { max-width: 600px; margin: 0 auto; }
+.partnership h2 {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.partnership p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* FORM SECTION */
+.form-section { padding: 56px 24px 64px; background: var(--bg); }
+.form-section-inner { max-width: 540px; margin: 0 auto; }
+.form-section h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.form-section .sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 20px;
+}
+.field { margin-bottom: 16px; }
+.field:last-child { margin-bottom: 0; }
+.field-label {
+  display: block;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--navy); margin-bottom: 6px;
+}
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.row .field { margin-bottom: 0; }
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px; color: var(--navy);
+  background: var(--white);
+  transition: border-color 0.15s;
+  outline: none;
+  appearance: none;
+}
+input::placeholder { color: #AAB8C2; }
+input:focus, select:focus { border-color: var(--blue); }
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b8699' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.move-fields { display: none; }
+.move-fields.show { display: block; }
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px; font-weight: 700;
+  border: none; border-radius: 8px;
+  cursor: pointer; margin-top: 20px;
+  transition: background 0.15s;
+  letter-spacing: 0.01em;
+}
+.submit-btn:hover { background: #0e2d40; }
+.form-subtext {
+  text-align: center; font-size: 12px; color: #AAB8C2; margin-top: 10px;
+}
+
+/* DIVIDER */
+.or-divider {
+  display: flex; align-items: center; gap: 16px;
+  margin: 8px 0 20px;
+  font-size: 13px; color: var(--muted); font-weight: 600; letter-spacing: 0.05em;
+}
+.or-divider::before, .or-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+/* TEXT CTA */
+.text-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 32px;
+  text-align: center;
+}
+.text-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.text-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+.phone-display {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 20px; font-weight: 700; color: var(--navy);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+.phone-display:hover { border-color: var(--blue); }
+.phone-display svg { width: 18px; height: 18px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* SUCCESS */
+.success-msg {
+  text-align: center;
+  padding: 32px 0;
+  font-size: 18px; font-weight: 600; color: var(--navy); line-height: 1.5;
+}
+.success-msg span {
+  display: block; font-size: 14px; font-weight: 400; color: var(--blue); margin-top: 8px;
+}
+
+/* FOOTER */
+.footer { background: var(--navy); padding: 32px 24px; text-align: center; }
+.footer img { height: 22px; margin-bottom: 10px; }
+.footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .tiles-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 44px 20px 68px; }
+  .form-card, .text-card { padding: 24px 20px; }
+  .tiles-section { padding: 36px 20px; }
+}
+@media (max-width: 480px) {
+  .row { grid-template-columns: 1fr; gap: 0; }
+  .row .field { margin-bottom: 16px; }
+  .tiles-grid { grid-template-columns: 1fr; }
+  .nav { gap: 14px; padding: 14px 20px; }
+  .nav img.ridgewood { height: 34px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <img class="ridgewood" src="ridgewood-logo.png" alt="Ridgewood Moving Company">
+  <span class="nav-x">×</span>
+  <img class="ha" src="ha-logo.svg" alt="HouseAccount">
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Your move is just the beginning.<br><span>We handle everything after.</span></h1>
+  <p class="hero-sub">Ridgewood clients get exclusive access to HouseAccount — your personal home services concierge, at no cost.</p>
+</section>
+
+<!-- ABOUT HOUSEACCOUNT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="eyebrow">What is HouseAccount?</div>
+    <p>HouseAccount is your personal home services concierge — we connect you with vetted, highly-rated local professionals for everything from TV mounting to deep cleaning to lock changes. One text, and we handle the rest.</p>
+  </div>
+</section>
+
+<!-- TILES -->
+<section class="tiles-section">
+  <div class="tiles-inner">
+    <div class="tiles-grid">
+      <div class="tile highlight">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h4>Dedicated Concierge</h4>
+        <p>A real person coordinates every job — scheduling, follow-up, and everything in between.</p>
+      </div>
+      <div class="tile">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Vetted Pros Only</h4>
+        <p>Every professional is vetted and rated 4.5 stars or above.</p>
+      </div>
+      <div class="tile">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="16" x2="12" y2="21"/></svg></div>
+        <h4>Move-In Services</h4>
+        <p>TV mounting, furniture assembly, deep cleaning — the stuff you need done right away.</p>
+      </div>
+      <div class="tile">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>Ongoing Home Care</h4>
+        <p>Beyond move-in — we're here for every home need, wherever you move.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM + TEXT CTA -->
+<section class="form-section">
+  <div class="form-section-inner">
+    <h2>Claim your access</h2>
+    <p class="sub">Fill out your info below and your concierge will reach out within 1 business day — or text us directly to get started. Your concierge will help you with all of your home needs.</p>
+
+    <div class="form-card">
+      <form id="claim-form" name="ridgewood-partnership-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="ridgewood-partnership-leads">
+        <input type="hidden" name="partner" value="Ridgewood Moving Company">
+        <input style="display:none" name="bot-field">
+
+        <div class="field">
+          <label class="field-label" for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="First & last" required>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label class="field-label" for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@home.com" required>
+          </div>
+          <div class="field">
+            <label class="field-label" for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(___) ___-____" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="address">Home Address</label>
+          <input type="text" id="address" name="address" placeholder="123 Main St, City, State" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="move-status">Move Status</label>
+          <select id="move-status" name="move_status" onchange="toggleMoveFields(this.value)" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="upcoming">I have an upcoming move</option>
+            <option value="recent">I recently moved</option>
+          </select>
+        </div>
+
+        <div class="move-fields" id="move-fields">
+          <div class="row">
+            <div class="field">
+              <label class="field-label" for="move-date">Move Date</label>
+              <input type="date" id="move-date" name="move_date">
+            </div>
+            <div class="field">
+              <label class="field-label" for="move-address">Move-To Address</label>
+              <input type="text" id="move-address" name="move_address" placeholder="If different from above">
+            </div>
+          </div>
+        </div>
+
+
+        <button class="submit-btn" type="submit">Claim my access &rarr;</button>
+        <p class="form-subtext">We'll text within 1 business day. No spam, promise.</p>
+      </form>
+    </div>
+
+    <div class="or-divider">OR</div>
+
+    <div class="text-card">
+      <h3>Prefer to text?</h3>
+      <p>Reach your HouseAccount concierge directly — they'll get you set up in minutes.</p>
+      <a class="phone-display" href="sms:+12672625848">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        267-262-5848
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="ha-logo.svg" alt="HouseAccount">
+  <p style="margin-top:8px;">© 2026 HouseAccount. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMoveFields(val) {
+  const fields = document.getElementById('move-fields');
+  const moveDate = document.getElementById('move-date');
+  const moveAddress = document.getElementById('move-address');
+  if (val === 'upcoming' || val === 'recent') {
+    fields.classList.add('show');
+    moveDate.required = true;
+    moveAddress.required = true;
+  } else {
+    fields.classList.remove('show');
+    moveDate.required = false;
+    moveAddress.required = false;
+  }
+}
+
+document.getElementById('claim-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    });
+    if (res.ok) {
+      form.innerHTML = '<div class="success-msg">You\'re all set! <span>Your concierge will reach out within 1 business day.</span></div>';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err) {
+    alert('Something went wrong. Please try again.');
+  }
+});
+</script>
+
+</body>
+</html>
